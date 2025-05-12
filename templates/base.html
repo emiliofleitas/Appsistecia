@@ -1,0 +1,32 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+
+<body class="bg-dark"> 
+<div class="position-fixed top-0 start-0 w-100 h-100" 
+    style="
+        background-image: url('{% static 'images/fondo.jpeg' %}');
+        background-size: cover;
+        background-position: center;
+        z-index: -1;
+    ">
+</div>
+
+
+
+
+<nav class="navbar navbar-expand-lg" style="background-color:rgb(206, 71, 71);">
+<div class="container-fluid">
+    <a class="navbar-brand" href={% url "attendance_layer" %}>Appsistencia</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <a class="nav-link active" aria-current="page" href="{% url "control_panel" %}">Registrarse</a>
+        </li>
+    </div>
+</div>
+</nav>
+<script src="{% static 'js/bootstrap.js' %}"></script>
+{% block content %}{% endblock %}

@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+<div class="row g-10 mt-5">
+    <div class="card mx-auto my-auto" style="width: 40rem;">
+        <div class="card-body">
+            <h1 class="text-center mb-4">Bienvenido al panel de control {request.user} </h1>
+            
+            <div class="row g-4 mb-4">
+                <!-- Primera fila -->
+                <div class="col-md-6">
+                    <a href="{% url "student_registration" %}" type="button" class="btn btn-primary w-100 py-4">
+                        <img src="{% static 'icons/helperson-bounding-box.svg' %}" alt="Registrar alumno" class="mb-2" style="width: 50px;">
+                        Registrar alumno
+                    </a>
+                </div>
+                <div class="col-md-6">
+                    <a type="button" class="btn btn-success w-100 py-4">
+                        <img src="{% static 'icons/person-vcard.svg' %}" alt="Registrar usuario" class="mb-2" style="width: 50px;">
+                        Registrar usuario
+                    </a>
+                </div>
+                
+                <!-- Segunda fila -->
+                <div class="col-md-6">
+                    <a type="button" class="btn btn-info w-100 py-4">
+                        <img src="{% static 'icons/clipboard2-data.svg' %}" alt="Informe de asistencias" class="mb-2" style="width: 50px;">
+                        Informe de asistencias
+                    </a>
+                </div>
+                <div class="col-md-6">
+                    <a href={% url "logout_sesion" %} type="button" class="btn btn-warning w-100 py-4">
+                        <img src="{% static 'icons/chat-square-heart.svg' %}" alt="Ayuda" class="mb-2" style="width: 50px;">
+                        Ayuda
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
