@@ -5,7 +5,8 @@
 
 <div class="card mx-auto mt-5" style="max-width: 900px;">
 
-    <form action="" method="POST" class="">
+    <form action="{% url "student_registration" %}" method="POST" class="">
+        {% csrf_token %}
         <div class="card">
             <div class="card-body py-3">
                 <div class="mb-3">
@@ -27,8 +28,8 @@
                 </div>
         
                 <div class="mb-3">
-                    <label for="fecha_nacimiento" class="form-label">Fecha de fecha_nacimiento</label>
-                    <input type="date" class="form-control" id="fecha_nacimiento" placeholder="Escribe tú número de cédula aquí"
+                    <label for="fecha_nacimiento" class="form-label">Fecha de fecha nacimiento</label>
+                    <input type="date" class="form-control" id="fecha_nacimiento" placeholder="tu fecha de nacimiento"
                     name="fecha_nacimiento" value="">
                 </div>
             </div>

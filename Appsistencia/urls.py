@@ -20,6 +20,7 @@ from django.contrib import admin
 from django.urls import path
 from django.shortcuts import redirect
 from at_system import views
+from at_system.views import download_attendance_report
 
 urlpatterns = [
     path('admin', admin.site.urls),
@@ -28,7 +29,9 @@ urlpatterns = [
     path('login_session/',views.login_session, name="login_session"),
     path('logout_sesion/',views.logout_sesion, name="logout_sesion"),
     path('control_panel',views.control_panel, name="control_panel"),
-    path('student_registration',views.stundent_register, name="student_registration")
+    path('student_registration/',views.stundent_register, name="student_registration"),
+    path('attendance_report',views.attendance_report, name="attendance_report"),
+    path('download_attendance_report/', download_attendance_report, name="download_attendance_report"),
     
 ]
 if settings.DEBUG:
