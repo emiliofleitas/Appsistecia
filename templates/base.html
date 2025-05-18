@@ -1,14 +1,26 @@
 {% load static %}
-<link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"/>
+    <meta name="viewport" content= "width=device-width,initial-scale=1.0"/>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+    } 
+</style>
+</head>
 
-<body class="bg-dark"> 
-<div class="position-fixed top-0 start-0 w-100 h-100" 
-    style="
-        background-image: url('{% static 'images/fondo.jpeg' %}');
-        background-size: cover;
-        background-position: center;
-        z-index: -1;
-    ">
+<div style="background-image: url('{% static 'images/fondo.jpeg' %}');
+            background-size: cover;
+            background-repeat: no-repeat;
+            height: 100vh;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            position: fixed;
+            z-index: -1;">
 </div>
 
 <nav class="navbar navbar-expand-lg" style="background-color:rgb(206, 71, 71);">
@@ -19,7 +31,7 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="nav-item">
         <a class="nav-link active" aria-current="page" href="{% url "control_panel" %}">Registrarse</a>
         </li>
     </div>

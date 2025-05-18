@@ -1,0 +1,49 @@
+# Entorno virtual
+venv/
+.env
+*.env
+look.txt
+
+# Archivos de configuración del sistema operativo
+.DS_Store
+Thumbs.db
+
+# Archivos Python compilados
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Archivos de log
+*.log
+
+# Base de datos SQLite (si se usa)
+*.sqlite3
+
+# Archivos de migraciones vacíos o temporales
+**/migrations/*.pyc
+**/migrations/__pycache__/
+
+# Archivos de caché
+*.cache
+
+# Archivos de pruebas
+coverage.xml
+htmlcov/
+.tox/
+.nox/
+.pytest_cache/
+
+# Archivos generados por editores o IDEs
+.vscode/
+.idea/
+
+# Archivos de media y estáticos generados dinámicamente
+/media/
+staticfiles/
+static/
+
+# Archivos para desplegar (ej. Docker, Heroku)
+*.pid
+
+# Archivos de configuración local
+local_settings.py

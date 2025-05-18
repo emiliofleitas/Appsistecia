@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class= "row g-10 mt-4">
+<div class="card mx-auto my-auto" style="width: 40rem;">
+        <div class="card-body" >
+        <h1>Registrar usuario</h1>
+
+        <form action="" class="card card-body" >
+            {% csrf_token %}
+            <div class="mb-3">
+            <label for="user" class="form-label">Nombre de usuario</label>
+            <input type="text" class="form-control" id="user" name="usuario">
+        
+            <label for="password" class="form-label">Contraseña</label>
+            <input type="password" class="form-control" id="password" name="password">
+
+            <label for="e-mail" class="form-label">Correo electronico</label>
+            <input type="email" class="form-control" id="e-mail" name="e-mail">
+            </div>
+
+            </div>
+            <div class="text-center mb-3">
+                <button type="button" class="btn btn-success">Guardar</button>
+                <button type="button" class="btn btn-danger">Cancelar</button>
+                
+            </div> 
+        </div> 
+
+        </form>
+    </div>
+</div>
+{% endblock %}

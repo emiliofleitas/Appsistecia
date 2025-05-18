@@ -25,29 +25,32 @@
             </div>
             
             <!-- Filters (optional) -->
+            <form class="mb-3" action="{% url 'attendance_report' %}" method="POST">
+            {% csrf_token %}
             <div class="row mb-4">
                 <div class="col-md-3">
                     <div class="input-group">
                         <span class="input-group-text">Desde</span>
-                        <input type="date" class="form-control">
+                        <input type="date" class="form-control" name="date_start">
                     </div>
                 </div>
                 <div class="col-md-3">
                     <div class="input-group">
                         <span class="input-group-text">Hasta</span>
-                        <input type="date" class="form-control">
+                        <input type="date" class="form-control" name="date_end">
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="input-group">
                         <span class="input-group-text">Buscar</span>
-                        <input type="text" class="form-control" placeholder="Nombre o cédula">
+                        <input type="text" class="form-control" placeholder="Nombre o cédula", name="query_spec">
                     </div>
                 </div>
                 <div class="col-md-2">
-                    <button type="button" class="btn btn-info text-white w-100">Filtrar</button>
+                    <button type="submit" class="btn btn-primary text-white w-100">Filtrar</button>
                 </div>
             </div>
+        </form>
             
             <!-- Table with 4 columns -->
             <div class="table-responsive">
@@ -73,7 +76,6 @@
                 </table>
             </div>
             
-            <!-- Pagination -->
             <nav aria-label="Page navigation" class="mt-4">
                 <ul class="pagination justify-content-center">
                     <li class="page-item disabled">

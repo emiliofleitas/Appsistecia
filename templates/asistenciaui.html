@@ -4,7 +4,33 @@
 <div class="row g-10 mt-5">
     <div class="card mx-auto my-auto" style="width: 40rem;">
         <div class="card-body">
-            <h1>Marcar Asistencia</h1>
+            <h1 class="text-center mb-3">Marcar Asistencia</h1>
+                
+            <div class="text-center mb-4">
+                <span style="font-size: 1.5rem;">
+                    {% if weather.condition == "Sunny" %}
+                        ☀️
+                    {% elif weather.condition == "Cloudy" %}
+                        ☁️
+                    {% elif weather.condition == "Rainy" %}
+                        🌧️
+                    {% elif weather.condition == "Thunder" %}
+                        ⛈️
+                    {% else %}
+                        🌡️
+                    {% endif %}
+                </span>
+                <span style="font-size: 1rem; margin-left: 10px;">
+                    Clima en {{ weather.city }}: 
+                    <strong>{{ weather.temperature }}°C</strong>, 
+                    Humedad: <strong>{{ weather.humidity }}%</strong>
+                </span>
+                <br>
+                <span style="font-size: 0.9rem; color: gray;">
+                 <strong id="localtime">{{ weather.localtime }}</strong>
+                </span>
+            </div>
+
             {% if messages %}
                 <div id="messages">
                     {% for message in messages %}
@@ -21,7 +47,7 @@
                     <input type="text" class="form-control" id="numero_ci" name="doc_ci">
                 </div>
                 <div class="d-flex justify-content-center">
-                    <button type="submit" class="btn btn-danger" style="width: 150px;">Marcar salida</button>
+                    <button type="submit" class="btn btn-danger" style="width: 170px;">Marcar asistencia</button>
                 </div>
             </form>
         </div>
@@ -35,6 +61,25 @@
             messagesDiv.style.display = 'none';
         }
     }, 3000);
+    function updateTime() {
+        const localtimeElement = document.getElementById('localtime');
+        if (localtimeElement) {
+            // Obtén la hora actual
+            const now = new Date();
+            const hours = now.getHours().toString().padStart(2, '0'); // Asegura formato HH
+            const minutes = now.getMinutes().toString().padStart(2, '0'); // Asegura formato MM
+            const seconds = now.getSeconds().toString().padStart(2, '0'); // Asegura formato SS
+
+            // Actualiza el contenido del elemento
+            localtimeElement.textContent = `${now.toLocaleDateString()} ${hours}:${minutes}:${seconds}`;
+        }
+    }
+
+    // Actualiza la hora cada segundo
+    setInterval(updateTime, 1000);
+
+    // Llama a la función inmediatamente para mostrar la hora al cargar la página
+    updateTime();
 </script>
 
 {% endblock %}

@@ -1,44 +1,62 @@
 {% extends "base.html" %}
 {% block content %}
 
-
-
-<div class="card mx-auto mt-5" style="max-width: 900px;">
+<div class="mx-auto py-2" style="max-width: 1000px; min-height: 600px; width: 50rem;">
 
     <form action="{% url "student_registration" %}" method="POST" class="">
         {% csrf_token %}
+        
         <div class="card">
-            <div class="card-body py-3">
+            <h1 class="text-center">Registrar Estudiante</h2>
+            {% if messages %}
+        <div id="messages">
+            {% for message in messages %}
+                <div class="alert {% if message.tags %}alert-{{ message.tags }}{% else %}alert-info{% endif %}" role="alert">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+                <div class="card-body">
                 <div class="mb-3">
                     <label for="name" class="form-label">Nombre</label>
                     <input type="text" class="form-control" id="name" placeholder="Escribe tú nombre aquí"
-                    name="name" value="">
+                    name="name" value="" required>
                 </div>
         
                 <div class="mb-3">
                     <label for="lastname" class="form-label">Apellido</label>
                     <input type="text" class="form-control" id="lastname" placeholder="Escribe tú apellido aquí"
-                    name="lastname" value="">
+                    name="lastname" value="" required>
                 </div>
         
                 <div class="mb-3">
                     <label for="doc_ci" class="form-label">Número de cédula</label>
                     <input type="number" class="form-control" id="doc_ci" placeholder="Escribe tú número de cédula aquí"
-                    name="doc_ci" value="">
+                    name="doc_ci" value="" required>
                 </div>
         
                 <div class="mb-3">
-                    <label for="fecha_nacimiento" class="form-label">Fecha de fecha nacimiento</label>
+                    <label for="fecha_nacimiento" class="form-label">Fecha de nacimiento</label>
                     <input type="date" class="form-control" id="fecha_nacimiento" placeholder="tu fecha de nacimiento"
-                    name="fecha_nacimiento" value="">
+                    name="fecha_nacimiento" value="" required>
                 </div>
             </div>
-        <div class="text-center">
-        <button type="submit" class="btn btn-danger">Guardar</button>
-        <button type="button" class="btn btn-secondary"data-bs-dismiss="modal">Cancelar</button>
-        </div>
-        </form>
-        
-    </div>
-    
+
+            <div class="text-center mb-3">
+                <button type="submit" class="btn btn-outline-success">Guardar</button>
+                <a type="button" class="btn btn-outline-danger" href={% url "attendance_layer" %} >Cancelar</a>
+            </div> 
+        </div> 
+    </form>
+</div>
+<script>
+    setTimeout(function() {
+        const messagesDiv = document.getElementById('messages');
+        if (messagesDiv) {
+            messagesDiv.style.display = 'none';
+        }
+    }, 3000);
+</script>
+
 {% endblock %}
